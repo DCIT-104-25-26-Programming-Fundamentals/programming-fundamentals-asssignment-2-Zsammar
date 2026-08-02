@@ -53,19 +53,19 @@ char getGrade(int score) {
   }
 
   if (score >= 80) {
-    return "A";
+    return 'A';
   }
   else if (score >= 70) {
-    return "B";
+    return 'B';
   }
   else if (score >= 60) {
-    return "C";
+    return 'C';
   }
   else if (score >= 50) {
-    return "D";
+    return 'D';
   }
   else {
-    return "F";
+    return 'F';
   }
   }
 
@@ -101,5 +101,5 @@ int main() {
 
 
 
-}
+
   
