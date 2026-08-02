@@ -73,3 +73,141 @@
 #include <cmath>
 using namespace std;
 
+//adding two numbers
+double add(double a, double b) {
+  return a + b;
+}
+
+//subtracting b from a
+double subtract(double a, double b) {
+  return a - b;
+}
+
+//multiplying two numbers
+double multiply(double a, double b) {
+  return a * b;
+}
+
+//dividing a by b; returns true if successful,  false if b is zero
+bool divide(double a, double b, double& result) {
+  if (b == 0) {
+    return false;
+  }
+  result = a/b;
+  return true;
+}
+
+//modulus of a by b; returns true if successful
+bool findModulus(double a, double b, double& result) {
+  if (b == 0) {
+    return false;
+  }
+  result = fmod(a, b);
+  return true;
+}
+
+//raising base to a given exponent
+double power(double base, double exponent) {
+  return pow(base, exponent);
+}
+
+//user inputs two numbers
+void twoNums(double& first, double& second) {
+  cout << "Enter first number : ";
+  cin >> first;
+  cout << "Enter second number: ";
+  cin >> second;
+}
+
+//display the menu options
+void printMenu() {
+  cout << "============================" << endl;
+  cout << "     SIMPLE CALCULATOR" << endl;
+  cout << "============================" << endl;
+  cout << "1. Addition" <<endl;
+  cout << "2. Subtraction" <<endl;
+  cout << "3. Multiplication" <<endl;
+  cout << "4. Division" << endl;
+  cout << "5. Modulus" << endl;
+  cout << "6. Exponentiation" << endl;
+  cout << "7. Quit" << endl;
+  cout << "Select an operation (1-7): ";
+
+}
+
+
+int main() {
+  int choice;
+  bool running = true;
+  
+  cout << fixed << setprecision(2);
+
+while (running) {
+    printMenu();
+    cin >> choice;
+    cout << endl;
+
+    double a, b, result;
+
+    switch (choice) {
+        case 1:
+        twoNums(a, b);
+        result = add(a, b);
+        cout << "Result: " << a << " + " << b << " = " << result << endl;
+        break;
+
+        case 2:
+        twoNums(a, b);
+        result = subtract(a, b);
+        cout << "Result: " << a << " - " << b << " = " << result << endl;
+        break;
+
+        case 3:
+        twoNums(a, b);
+        result = multiply(a, b);
+        cout << "Result: " << a << " * " << b << " = " << result << endl;
+        break;
+
+        case 4:
+        twoNums(a, b);
+        if (divide(a, b, result)){
+        cout << "Result: " << a << " / " << b << " = " << result << endl;
+        }
+        else {
+          cout << "Error: Cannot divide by zero." << endl;
+        }
+        break;
+
+        case 5:
+          twoNums(a, b);
+          if (findModulus(a, b, result)) {
+             cout << "Result: " << a << " % " << b << " = " << result << endl;
+          }
+          else {
+             cout << "Error: Cannot divide by zero." << endl;
+          }
+          break;
+
+        case 6:
+          twoNums(a, b);
+          result = power(a, b);
+          cout << "Result: " << a << " ^ " << b << " = " << result << endl;
+          break;
+
+        case 7:
+            cout << "Goodbye!" << endl;
+            running = false;
+            break;
+
+        default:
+            cout << "Error: Invalid choice. Please select a number between 1 and 7." << endl;
+            break;
+
+
+  }
+    cout << endl;
+
+}
+
+  return 0;
+}
