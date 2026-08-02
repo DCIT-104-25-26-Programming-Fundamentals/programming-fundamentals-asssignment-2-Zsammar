@@ -46,13 +46,14 @@ bool isItPrime(int number) {
 
   for (int i = 2; i * i <= number; i++) {
     if (number % i == 0) {
-      return
+      return false;
     }
   }
   return true;
 }
 
 int main() {
+  int number;
   cout << "Enter a number: ";
   cin >> number;
 
@@ -62,6 +63,7 @@ int main() {
   else {
     cout << number << " is NOT a prime number." << endl;
   }
-  }
+  
   return 0;
 
+}
